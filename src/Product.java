@@ -35,5 +35,14 @@ public class Product {
     public void setVolumeProduct(int volumeProduct) {
         this.volumeProduct = volumeProduct;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Продукт: %s | Бренд: %s | Объем Коробки  %s | Объем продукта %s \n"  ,
+                this.type,
+                this.name,
+                this.volumeBox,
+                this.volumeProduct);
+    }
 }
 
