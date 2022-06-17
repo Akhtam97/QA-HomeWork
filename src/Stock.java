@@ -1,23 +1,16 @@
-import java.util.ArrayList;
 
 public class Stock {
-    private int volume = 50;
-    private ArrayList<Product> products;
+    private int cubicMeters;
 
-    public int getVolume() {
-        return volume;
+    public Stock(int cubicMeters) {
+        this.cubicMeters = cubicMeters;
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
+    public int getCubicMeters() {
+        return cubicMeters;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public void setCubicMeters(int cubicMeters) {
+        this.cubicMeters = cubicMeters;
     }
-
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
-    }
-
 }

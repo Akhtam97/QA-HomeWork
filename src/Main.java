@@ -3,17 +3,15 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
+    static Products soap = new Products("Мыло", "Dove", 3, 250);
+    static Products drink = new Products("Напиток", "Coca-Cola", 5, 500);
+    static Products shampoo = new Products("Шампунь", "Жумайсынба", 4, 300);
+    static ArrayList<Products> stock1 = new ArrayList<>();
+    static ArrayList<Integer> cm = new ArrayList<>();
+    static int cm1All = 0;
+
     public static void main(String[] args) {
-        Product drink = new Product("Напиток", "Кока-Кола", 5,500);
-        Product shampoo = new Product("Шампун", "Жумайсынба", 3,250);
-        Product soap = new Product("Мыло","Хозяйственное",4,300);
-        ArrayList<Stock> stocks = new ArrayList<>();
-        Stock stock1 = new Stock();
-        Stock stock2 = new Stock();
-        Stock stock3 = new Stock();
-        stocks.add(stock1);
-        stocks.add(stock2);
-        stocks.add(stock3);
+
         while (true) {
             int mainMenuItem;
             System.out.println("-------------------------------------------------------------");
@@ -53,7 +51,30 @@ public class Main {
             mainMenuItem = sc.nextInt();
             //Код для дальнейшей работы
             if (mainMenuItem == 1) {
-
+                boolean b = true;
+                while (b) {
+                    System.out.println("Коробку какого товара вы хотели бы добавить?");
+                    System.out.println("1 - Напиток Кока-колу + 5 к.м.");
+                    System.out.println("2 - Шампунь Жумайсынба + 3 к.м.");
+                    System.out.println("3 - Мыло Dove + 4 к.м.");
+                    System.out.println("0 - Для Выхода");
+                    int answer = sc.nextInt();
+                    if (answer == 1) {
+                        stock1.add(drink);
+                        cm.add(drink.getBoxVolume());
+                    } else if (answer == 2) {
+                        stock1.add(shampoo);
+                        cm.add(shampoo.getBoxVolume());
+                    } else if (answer == 3) {
+                        stock1.add(soap);
+                        cm.add(soap.getBoxVolume());
+                    } else if (answer == 0) {
+                        System.out.println("Вернемся");
+                        return;
+                    } else {
+                        System.out.println("Ошибка");
+                    }
+                }
             }
         }
     }
@@ -68,11 +89,25 @@ public class Main {
             System.out.println("    3) Удалить склад");
             System.out.println("    0) Выход в главное меню");
             mainMenuItem = sc.nextInt();
+            if (mainMenuItem == 1) {
+                boolean b = true;
+                while (b) {
+                    System.out.println("1 - Склад Россия");
+                    System.out.println("2 - Склад Кыргызстан");
+                    System.out.println("3 - Склад Путин!");
+                    System.out.println("0 - Вернуться");
+                    int answer = sc.nextInt();
+                    if (answer == 1) {
+                        for (Products all : stock1) {
+                            System.out.println(all);
+                        }
+                    }
+                    for (int i = 0; i < cm.size(); i++) {
+                        cm1All = cm1All + cm.get(i);
+                    }
+                    System.out.println("Общий объем" + cm1All);
+                }
+            }
         }
     }
 }
-
-
-
-
-
